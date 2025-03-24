@@ -1,0 +1,57 @@
+\documentclass{letter}
+
+\usepackage{tikz}\usetikzlibrary{calc}
+
+\input{portada/datos}
+\input{portada/integrantes}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+	%---Imagenes---%
+	\node[anchor = north west] at ($(current page.north west) + (1in, -1in)$) {
+		\includegraphics[width = 3cm]{portada/Imagenes/esime.png}
+	};
+	\node[anchor = north east] at ($(current page.north east) + (-1in, -1in)$) {
+		\includegraphics[height = 3cm]{portada/Imagenes/ipn.png}
+	};
+	\node[anchor = south west] at ($(current page.south west) + (1in, 1in)$) {
+		\includegraphics[width = 3cm]{portada/Imagenes/esime-ice.png}
+	};
+	%---Lineas Horizontales---%
+	\draw[line width = 1mm] ($(current page.north west) + (2.5in, -1.5in)$) -- ($(current page.north east) + (-2.5in, -1.5in)$);
+	\draw[line width = 0.5mm] ($(current page.north west) + (2.5in, -1.6in)$) -- ($(current page.north east) + (-2.5in, -1.6in)$);
+	%---Lineas Verticales---%
+	\draw[line width = 1mm] ($(current page.north west) + (1.6in, -2.5in)$) -- ($(current page.south west) + (1.6in, 2.5in)$);
+	\draw[line width = 0.5mm] ($(current page.north west) + (1.7in, -2.5in)$) -- ($(current page.south west) + (1.7in, 2.5in)$);
+	%---Texto de encabezado---%
+	\node[anchor = north] at ($(current page.north) + (0in, -1.2in)$) {
+		\Large{\textbf{Instituto Politécnico Nacional}}
+	};
+	\node[anchor = north] at ($(current page.north) + (0in, -1.65in)$) {
+		\small{Escuela Superior de Ingeniería Mecánica y Eléctrica};
+	};
+	\node[anchor = north] at ($(current page.north) + (0in, -1.8in)$) {
+		\small{Unidad Zacatenco (ESIMEZ)}
+	};
+	%---Texto de título---%
+	\node at ($(current page.center) + (0in, +0.5in)$) {
+		\begin{minipage}{8cm}
+			\begin{center}\textbf{\Huge{\titulo}}\end{center}
+		\end{minipage}
+	};
+	%---minipage---%
+	\node[anchor = south] at ($(current page.south) + (0in, 1in)$) {
+		\begin{minipage}{8cm}
+		\large{\textbf{Fecha de realización:} \realizacion}\\
+		\large{\textbf{Fecha de entrega:} \entrega}\\
+		\\
+		\large{\textbf{Unidad de Aprendizaje:} \unidad}\\
+		\large{\textbf{Profesor:} \profesor}\\
+		\large{\textbf{Grupo:} \grupo}\\
+		\\
+		\nombres
+		\end{minipage}
+	};
+\end{tikzpicture}
+\end{document}
